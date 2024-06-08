@@ -30,94 +30,39 @@
     </header>
     <main role="main">
         <section id="home">
-            <img src="banner.jpg" alt="Welcome to CardCraft Creations" class="responsive-img">
-            <h2>Welcome to CardCraft Creations</h2>
-            <p>Your one-stop shop for custom ID cards, birthday invitations, and more!</p>
-            <p>At CardCraft Creations, we specialize in crafting high-quality, personalized cards for every occasion. Whether you need a custom ID card, a unique birthday invitation, or elegant event invitations, we've got you covered. Our mission is to bring your vision to life with beautifully designed cards that make a lasting impression.</p>
-            <h3>Our Products</h3>
-            <ul>
-                <li><strong>Custom ID Cards:</strong> Tailor-made ID cards for businesses, events, and personal use.</li>
-                <li><strong>Birthday Invitations:</strong> Unique and fun designs to celebrate your special day.</li>
-                <li><strong>Event Invitations:</strong> Elegant and customized invitations for weddings, parties, and other events.</li>
-                <li><strong>More:</strong> We offer a variety of custom card options to suit your needs.</li>
-            </ul>
-            <h3>Latest Updates</h3>
-            <p>Stay tuned for our upcoming collection of holiday cards!</p>
-            <div id="uploaded-images">
-                <!-- Uploaded images will be displayed here -->
-            </div>
+            <!-- Home content -->
         </section>
         <section id="about" style="display:none;">
-            <h2>About Us</h2>
-            <p>CardCraft Creations is dedicated to providing high-quality custom cards for every occasion.</p>
+            <!-- About content -->
         </section>
         <section id="services" style="display:none;">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Custom ID Cards</li>
-                <li>Event Invitations</li>
-                <li>Birthday Cards</li>
-                <li>And More!</li>
-            </ul>
+            <!-- Services content -->
         </section>
         <section id="gallery" style="display:none;">
-            <h2>Gallery</h2>
-            <div id="gallery-images">
-                <!-- Gallery images will be displayed here -->
-            </div>
+            <!-- Gallery content -->
         </section>
         <section id="contact" style="display:none;">
             <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/xrgnwnoq" method="POST">
+            <form action="https://formspree.io/f/{your-form-id}" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" required>
+                <input type="email" id="email" name="email" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Send</button>
             </form>
             <p>Email: <a href="mailto:info.cardcraftcreations@gmail.com">info.cardcraftcreations@gmail.com</a></p>
-            <p>Phone: <a href="tel:+18684749366">(868) 474-9366</a></p>
+            <p>Phone: <a href="tel:+18684749366">+1 (868) 474-9366</a></p>
         </section>
         <section id="order" style="display:none;">
-            <h2>Order Now</h2>
-            <p>Ready to place an order? Follow the steps below:</p>
-            <ol>
-                <li>Fill out our <a href="#contact">contact form</a> with your requirements.</li>
-                <li>We will get back to you with a quote and design options.</li>
-                <li>Approve the design and make the payment.</li>
-                <li>Your custom cards will be created and shipped to you.</li>
-            </ol>
-            <h3>Upload Your Own Design</h3>
-            <p>If you have your own design, you can upload it using the form below:</p>
-            <form id="order-upload-form" action="https://formspree.io/f/xrgnwnoq" method="POST" enctype="multipart/form-data">
-                <label for="upload">Upload Image:</label>
-                <input type="file" id="order-upload" name="upload" accept="image/*" required>
-                <label for="order-description">Description:</label>
-                <input type="text" id="order-description" name="description" required>
-                <button type="submit">Upload</button>
-            </form>
+            <!-- Order Now content -->
         </section>
         <section id="login" style="display:none;">
-            <h2>Admin Login</h2>
-            <form id="login-form">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Login</button>
-            </form>
+            <!-- Login content -->
         </section>
         <section id="upload" style="display:none;">
-            <h2>Upload Designs</h2>
-            <form id="upload-form">
-                <label for="upload">Upload Image:</label>
-                <input type="file" id="upload" name="upload" accept="image/*" required>
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description" required>
-                <button type="submit">Upload</button>
-            </form>
+            <!-- Upload content -->
         </section>
     </main>
     <footer role="contentinfo">
