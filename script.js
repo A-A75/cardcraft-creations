@@ -1,4 +1,68 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Select the forms
+    let contactForm = document.querySelector("#contact form");
+    let orderForm = document.querySelector("#order form");
+    
+    // Function to display a custom message
+    function displayMessage(message) {
+        // Create a message element
+        let messageElement = document.createElement("div");
+        messageElement.textContent = message;
+        messageElement.classList.add("message");
+        
+        // Append the message to the body
+        document.body.appendChild(messageElement);
+        
+        // Remove the message after 5 seconds
+        setTimeout(function() {
+            messageElement.remove();
+        }, 5000);
+    }
+    
+    // Function to handle form submission
+    function handleFormSubmit(form) {
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Get the form data
+            let formData = new FormData(form);
+            
+            // Validate form fields
+            if (!formData.get("name") || !formData.get("email")) {
+                displayMessage("Please fill out all required fields.");
+                return;
+            }
+            
+            // Submit the form data
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    displayMessage(data.message);
+                    form.reset();
+                } else {
+                    displayMessage("Oops! Something went wrong. Please try again later.");
+                }
+            })
+            .catch(error => {
+                displayMessage("Oops! Something went wrong. Please try again later.");
+            });
+        });
+    }
+    
+    // Handle contact form submission
+    handleFormSubmit(contactForm);
+    
+    // Handle order form submission
+    handleFormSubmit(orderForm);
+});
+{
     const sections = document.querySelectorAll("main section");
     const navLinks = document.querySelectorAll("nav ul li a");
 
