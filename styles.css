@@ -1,16 +1,13 @@
-/* Ensure font is loaded */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+    background-color: #fffbe6; /* Cream background */
 }
 
 header, footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 1em 0;
 }
@@ -18,11 +15,10 @@ header, footer {
 header h1 {
     margin: 0;
     font-size: 2em;
-    font-family: 'Montserrat', sans-serif;
 }
 
 header p {
-    margin: .5em 0;
+    margin: 0.5em 0;
     font-size: 1.2em;
 }
 
@@ -38,17 +34,16 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ecf0f1;
+    color: #fff;
     text-decoration: none;
     font-size: 1em;
 }
 
 main {
     padding: 20px;
-    background-color: #ecf0f1;
 }
 
-.responsive-img {
+.banner, .responsive-img {
     width: 100%;
     height: auto;
 }
@@ -81,32 +76,12 @@ form input, form textarea {
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1em;
 }
 
 form button {
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: #333;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 1em;
-}
-
-form button:hover {
-    background-color: #34495e;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .gallery-item {
-        width: 100%;
-        max-width: none;
-    }
-}
+    border-radius: 4
