@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
             const targetId = this.getAttribute("href").substring(1);
 
             sections.forEach(section => {
-                section.style.display = section.id === targetId ? "block" : "none";
+                if (section.id === targetId) {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
             });
         });
     });
