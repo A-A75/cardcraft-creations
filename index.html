@@ -24,6 +24,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#order">Order Now</a></li>
+                <li><a href="#login">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -42,12 +43,9 @@
             </ul>
             <h3>Latest Updates</h3>
             <p>Stay tuned for our upcoming collection of holiday cards!</p>
-            <h3>Upload Your Designs</h3>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label for="upload">Upload your image:</label>
-                <input type="file" id="upload" name="upload" accept="image/*">
-                <button type="submit">Upload</button>
-            </form>
+            <div id="uploaded-images">
+                <!-- Uploaded images will be displayed here -->
+            </div>
         </section>
         <section id="about" style="display:none;">
             <h2>About Us</h2>
@@ -64,18 +62,13 @@
         </section>
         <section id="gallery" style="display:none;">
             <h2>Gallery</h2>
-            <div class="gallery-item">
-                <img src="sample_id.jpg" alt="Sample ID Card" class="responsive-img">
-                <p>Custom ID Card (UNOFFICIAL)</p>
-            </div>
-            <div class="gallery-item">
-                <img src="birthday_card.jpg" alt="Birthday Card" class="responsive-img">
-                <p>Birthday Card</p>
+            <div id="gallery-images">
+                <!-- Gallery images will be displayed here -->
             </div>
         </section>
         <section id="contact" style="display:none;">
             <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/{your-form-id}" method="POST">
+            <form action="https://formspree.io/f/xrgnwnoq}" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -85,33 +78,51 @@
                 <button type="submit">Send</button>
             </form>
             <p>Email: <a href="mailto:info.cardcraftcreations@gmail.com">info.cardcraftcreations@gmail.com</a></p>
-            <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
+            <p>Phone: <a href="tel:+18684749366">(868) 474-9366</a></p>
+        </section>
+        <section id="order" style="display:none;">
+            <h2>Order Now</h2>
+            <p>Ready to place an order? Follow the steps below:</p>
+            <ol>
+                <li>Fill out our <a href="#contact">contact form</a> with your requirements.</li>
+                <li>We will get back to you with a quote and design options.</li>
+                <li>Approve the design and make the payment.</li>
+                <li>Your custom cards will be created and shipped to you.</li>
+            </ol>
+            <h3>Upload Your Own Design</h3>
+            <p>If you have your own design, you can upload it using the form below:</p>
+            <form id="order-upload-form" action="https://formspree.io/f/xrgnwnoq}" method="POST" enctype="multipart/form-data">
+                <label for="upload">Upload Image:</label>
+                <input type="file" id="order-upload" name="upload" accept="image/*" required>
+                <label for="order-description">Description:</label>
+                <input type="text" id="order-description" name="description" required>
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+        <section id="login" style="display:none;">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+        <section id="upload" style="display:none;">
+            <h2>Upload Designs</h2>
+            <form id="upload-form">
+                <label for="upload">Upload Image:</label>
+                <input type="file" id="upload" name="upload" accept="image/*" required>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
+                <button type="submit">Upload</button>
+            </form>
         </section>
     </main>
     <footer role="contentinfo">
         <p>&copy; 2024 CardCraft Creations. All rights reserved.</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let navLinks = document.querySelectorAll("nav ul li a");
-            let sections = document.querySelectorAll("main > section");
-            
-            navLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    
-                    sections.forEach(section => {
-                        section.style.display = "none";
-                    });
-                    
-                    let targetId = link.getAttribute("href").substring(1);
-                    document.getElementById(targetId).style.display = "block";
-                });
-            });
-            
-            // Show the home section by default
-            document.getElementById("home").style.display = "block";
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
