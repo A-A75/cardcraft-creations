@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardCraft Creations</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
     <meta name="description" content="CardCraft Creations offers custom cards for every occasion including ID cards, birthday invitations, and more.">
     <meta name="keywords" content="custom cards, ID cards, birthday invitations, event invitations">
     <meta name="author" content="CardCraft Creations">
@@ -24,6 +24,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#order">Order Now</a></li>
+                <li><a href="#login">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -32,18 +33,9 @@
             <img src="banner.jpg" alt="Welcome to CardCraft Creations" class="responsive-img">
             <h2>Welcome to CardCraft Creations</h2>
             <p>Your one-stop shop for custom ID cards, birthday invitations, and more!</p>
-            <h3>Latest Updates</h3>
-            <p>Stay tuned for our upcoming collection of holiday cards!</p>
-            <h3>Upload Your Designs</h3>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <label for="upload">Upload your image:</label>
-                <input type="file" id="upload" name="upload" accept="image/*">
-                <button type="submit">Upload</button>
-            </form>
         </section>
         <section id="about" style="display:none;">
-            <h2>About Us</h2>
-            <p>CardCraft Creations is dedicated to providing high-quality custom cards for every occasion.</p>
+            <!-- About content -->
         </section>
         <section id="services" style="display:none;">
             <h2>Our Services</h2>
@@ -67,11 +59,11 @@
         </section>
         <section id="contact" style="display:none;">
             <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/{your-form-id}" method="POST">
+            <form action="submit_form.php" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" required>
+                <input type="email" id="email" name="email" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Send</button>
@@ -79,31 +71,19 @@
             <p>Email: <a href="mailto:info@cardcraftcreations.com">info@cardcraftcreations.com</a></p>
             <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
         </section>
+        <section id="order" style="display:none;">
+            <!-- Order Now content -->
+        </section>
+        <section id="login" style="display:none;">
+            <!-- Login content -->
+        </section>
+        <section id="upload" style="display:none;">
+            <!-- Upload content -->
+        </section>
     </main>
     <footer role="contentinfo">
         <p>&copy; 2024 CardCraft Creations. All rights reserved.</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let navLinks = document.querySelectorAll("nav ul li a");
-            let sections = document.querySelectorAll("main > section");
-            
-            navLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    
-                    sections.forEach(section => {
-                        section.style.display = "none";
-                    });
-                    
-                    let targetId = link.getAttribute("href").substring(1);
-                    document.getElementById(targetId).style.display = "block";
-                });
-            });
-            
-            // Show the home section by default
-            document.getElementById("home").style.display = "block";
-        });
-    </script>
+    <script src="script.min.js" defer></script>
 </body>
 </html>
