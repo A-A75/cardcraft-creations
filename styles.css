@@ -1,13 +1,13 @@
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5; /* Light earth tone background */
+    background-color: #fffbe6; /* Cream background */
 }
 
 header, footer {
-    background-color: #5d4037; /* Dark brown */
-    color: #fff; /* White text */
+    background-color: #333;
+    color: #fff;
     text-align: center;
     padding: 1em 0;
 }
@@ -18,7 +18,8 @@ header h1 {
 }
 
 header p {
-    margin: .5em 0;
+    margin: 0.5em 0;
+    font-size: 1.2em;
 }
 
 nav ul {
@@ -33,12 +34,54 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff; /* White text */
+    color: #fff;
     text-decoration: none;
+    font-size: 1em;
 }
 
 main {
     padding: 20px;
 }
 
-/* Add more CSS styles as needed */
+.banner, .responsive-img {
+    width: 100%;
+    height: auto;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+.gallery-item {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4
