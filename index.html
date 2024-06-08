@@ -10,7 +10,7 @@
     <meta name="author" content="CardCraft Creations">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header role="banner">
@@ -24,22 +24,46 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#order">Order Now</a></li>
-                <li><a href="#login">Login</a></li>
             </ul>
         </nav>
     </header>
     <main role="main">
         <section id="home">
-            <!-- Home content -->
+            <img src="banner.jpg" alt="Welcome to CardCraft Creations" class="responsive-img">
+            <h2>Welcome to CardCraft Creations</h2>
+            <p>Your one-stop shop for custom ID cards, birthday invitations, and more!</p>
+            <h3>Latest Updates</h3>
+            <p>Stay tuned for our upcoming collection of holiday cards!</p>
+            <h3>Upload Your Designs</h3>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="upload">Upload your image:</label>
+                <input type="file" id="upload" name="upload" accept="image/*">
+                <button type="submit">Upload</button>
+            </form>
         </section>
         <section id="about" style="display:none;">
-            <!-- About content -->
+            <h2>About Us</h2>
+            <p>CardCraft Creations is dedicated to providing high-quality custom cards for every occasion.</p>
         </section>
         <section id="services" style="display:none;">
-            <!-- Services content -->
+            <h2>Our Services</h2>
+            <ul>
+                <li>Custom ID Cards</li>
+                <li>Event Invitations</li>
+                <li>Birthday Cards</li>
+                <li>And More!</li>
+            </ul>
         </section>
         <section id="gallery" style="display:none;">
-            <!-- Gallery content -->
+            <h2>Gallery</h2>
+            <div class="gallery-item">
+                <img src="sample_id.jpg" alt="Sample ID Card" class="responsive-img">
+                <p>Custom ID Card (UNOFFICIAL)</p>
+            </div>
+            <div class="gallery-item">
+                <img src="birthday_card.jpg" alt="Birthday Card" class="responsive-img">
+                <p>Birthday Card</p>
+            </div>
         </section>
         <section id="contact" style="display:none;">
             <h2>Contact Us</h2>
@@ -47,27 +71,39 @@
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="_replyto" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-            <p>Email: <a href="mailto:info.cardcraftcreations@gmail.com">info.cardcraftcreations@gmail.com</a></p>
-            <p>Phone: <a href="tel:+18684749366">+1 (868) 474-9366</a></p>
-        </section>
-        <section id="order" style="display:none;">
-            <!-- Order Now content -->
-        </section>
-        <section id="login" style="display:none;">
-            <!-- Login content -->
-        </section>
-        <section id="upload" style="display:none;">
-            <!-- Upload content -->
+            <p>Email: <a href="mailto:info@cardcraftcreations.com">info@cardcraftcreations.com</a></p>
+            <p>Phone: <a href="tel:+15551234567">(555) 123-4567</a></p>
         </section>
     </main>
     <footer role="contentinfo">
         <p>&copy; 2024 CardCraft Creations. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let navLinks = document.querySelectorAll("nav ul li a");
+            let sections = document.querySelectorAll("main > section");
+            
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    
+                    sections.forEach(section => {
+                        section.style.display = "none";
+                    });
+                    
+                    let targetId = link.getAttribute("href").substring(1);
+                    document.getElementById(targetId).style.display = "block";
+                });
+            });
+            
+            // Show the home section by default
+            document.getElementById("home").style.display = "block";
+        });
+    </script>
 </body>
 </html>
