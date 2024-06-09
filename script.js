@@ -1,4 +1,43 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Form validation and submission handling
+    const contactForm = document.getElementById('contactForm');
+    const orderForm = document.getElementById('orderForm');
+
+    contactForm.addEventListener('submit', function(event) {
+        if (!validateForm(contactForm)) {
+            event.preventDefault();
+        }
+    });
+
+    orderForm.addEventListener('submit', function(event) {
+        if (!validateForm(orderForm)) {
+            event.preventDefault();
+        }
+    });
+
+    function validateForm(form) {
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const message = form.querySelector('textarea').value.trim();
+
+        if (name === "" || email === "" || message === "") {
+            alert("Please fill out all fields.");
+            return false;
+        } else {
+            alert("Your message has been sent successfully!");
+            return true;
+       
+", function() {
     // Select the forms
     let contactForm = document.querySelector("#contact form");
     let orderForm = document.querySelector("#order form");
