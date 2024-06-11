@@ -1,8 +1,9 @@
+/* Ensure font is loaded */
 body {
-    font-family: 'Roboto', 'Montserrat', Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fffbe6; /* Cream background */
+    background-color: #f4f4f4;
 }
 
 header, footer {
@@ -14,12 +15,11 @@ header, footer {
 
 header h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 header p {
-    margin: 0.5em 0;
-    font-size: 1.2em;
+    margin: .5em 0;
 }
 
 nav ul {
@@ -36,7 +36,6 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1em;
 }
 
 main {
@@ -84,4 +83,22 @@ form button {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 4
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .gallery-item {
+        width: 100%;
+        max-width: none;
+    }
+}
