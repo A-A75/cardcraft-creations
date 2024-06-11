@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardCraft Creations</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.min.css">
     <meta name="description" content="CardCraft Creations offers custom cards for every occasion including ID cards, birthday invitations, and more.">
     <meta name="keywords" content="custom cards, ID cards, birthday invitations, event invitations">
     <meta name="author" content="CardCraft Creations">
@@ -24,61 +24,38 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#order">Order Now</a></li>
-                <li><a href="#login">Login</a></li>
             </ul>
         </nav>
     </header>
     <main role="main">
         <section id="home">
+            <img src="banner.jpg" alt="Welcome to CardCraft Creations" class="responsive-img">
             <h2>Welcome to CardCraft Creations</h2>
             <p>Your one-stop shop for custom ID cards, birthday invitations, and more!</p>
-            <form action="#" method="post">
-                <label for="subscribe">Subscribe to our newsletter:</label>
-                <input type="email" id="subscribe" name="subscribe" required>
-                <button type="submit">Subscribe</button>
-            </form>
         </section>
-        <section id="about" style="display:none;">
-            <h2>About Us</h2>
-            <p>Welcome to CardCraft Creations, your premier destination for custom cards for any occasion. We pride ourselves on providing high-quality, personalized cards that capture the essence of your special moments. Our team is dedicated to delivering exceptional service and ensuring your satisfaction with every order.</p>
-            <form action="#" method="post">
-                <label for="feedback">Send us your feedback:</label>
-                <textarea id="feedback" name="feedback" required></textarea>
-                <button type="submit">Send Feedback</button>
-            </form>
-        </section>
-        <section id="services" style="display:none;">
+        <section id="services">
             <h2>Our Services</h2>
             <ul>
                 <li>Custom ID Cards</li>
                 <li>Event Invitations</li>
                 <li>Birthday Cards</li>
-                <li>Anniversary Cards</li>
-                <li>Graduation Cards</li>
-                <li>Holiday Cards</li>
                 <li>And More!</li>
             </ul>
         </section>
-        <section id="gallery" style="display:none;">
+        <section id="gallery">
             <h2>Gallery</h2>
             <div class="gallery-item">
-                <img src="#" alt="Photo 1">
-                <p>Description for Photo 1</p>
+                <img src="sample_id.jpg" alt="Sample ID Card" class="responsive-img">
+                <p>Custom ID Card (UNOFFICIAL)</p>
             </div>
             <div class="gallery-item">
-                <img src="#" alt="Photo 2">
-                <p>Description for Photo 2</p>
+                <img src="birthday_card.jpg" alt="Birthday Card" class="responsive-img">
+                <p>Birthday Card</p>
             </div>
-            <!-- Add more gallery items as needed -->
-            <form action="#" method="post" enctype="multipart/form-data">
-                <label for="photo">Upload Photo:</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required>
-                <button type="submit">Upload</button>
-            </form>
         </section>
-        <section id="contact" style="display:none;">
+        <section id="contact">
             <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/xrgnwnoq" method="post">
+            <form action="submit_form.php" method="post">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -87,45 +64,13 @@
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-            <p>Email: <a href="mailto:info.cardcraftcreations@gmail.com">info.cardcraftcreations@gmail.com</a></p>
-            <p>Phone: <a href="tel:+18684749366">+1-868-474-9366</a></p>
-        </section>
-        <section id="order" style="display:none;">
-            <h2>Order Now</h2>
-            <form action="https://formspree.io/f/xrgnwnoq" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-                <label for="product">Product:</label>
-                <input type="text" id="product" name="product" required>
-                <button type="submit">Send</button>
-            </form>
             <p>Email: <a href="mailto:info@cardcraftcreations.com">info@cardcraftcreations.com</a></p>
             <p>Phone: <a href="tel:+18684749366">(868) 474-9366</a></p>
-        <section id="login" style="display:none;">
-            <h2>Login</h2>
-            <form action="#" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Login</button>
-            </form>
         </section>
     </main>
     <footer role="contentinfo">
         <p>&copy; 2024 CardCraft Creations. All rights reserved.</p>
-        <p>Follow Us:</p>
-        <ul>
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Pinterest</a></li>
-        </ul>
     </footer>
-    <script src="script.js" defer></script>
+    <script src="script.min.js" defer></script>
 </body>
 </html>
