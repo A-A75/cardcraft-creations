@@ -4,13 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CardCraft Creations</title>
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="styles.css">
     <meta name="description" content="CardCraft Creations offers custom cards for every occasion including ID cards, birthday invitations, and more.">
     <meta name="keywords" content="custom cards, ID cards, birthday invitations, event invitations">
     <meta name="author" content="CardCraft Creations">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCKlnKY8R0X0VY3Is1Nb4RO6t3Jmxh7Y7Q",
+            authDomain: "cardcraft-creations.firebaseapp.com",
+            projectId: "cardcraft-creations",
+            storageBucket: "cardcraft-creations.appspot.com",
+            messagingSenderId: "614242628441",
+            appId: "1:614242628441:web:3f061f197f931115635248",
+            measurementId: "G-FERLBG2DPZ"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <header role="banner">
@@ -24,6 +43,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#order">Order Now</a></li>
+                <li><a href="#admin">Admin</a></li>
             </ul>
         </nav>
     </header>
@@ -32,8 +52,23 @@
             <img src="banner.jpg" alt="Welcome to CardCraft Creations" class="responsive-img">
             <h2>Welcome to CardCraft Creations</h2>
             <p>Your one-stop shop for custom ID cards, birthday invitations, and more!</p>
+            <p>At CardCraft Creations, we specialize in crafting high-quality, personalized cards for every occasion. Whether you need a custom ID card, a unique birthday invitation, or elegant event invitations, we've got you covered. Our mission is to bring your vision to life with beautifully designed cards that make a lasting impression.</p>
+            <h3>Our Products</h3>
+            <ul>
+                <li><strong>Custom ID Cards:</strong> Tailor-made ID cards for businesses, events, and personal use.</li>
+                <li><strong>Birthday Invitations:</strong> Unique and fun designs to celebrate your special day.</li>
+                <li><strong>Event Invitations:</strong> Elegant and customized invitations for weddings, parties, and other events.</li>
+                <li><strong>More:</strong> We offer a variety of custom card options to suit your needs.</li>
+            </ul>
+            <h3>Latest Updates</h3>
+            <p>Stay tuned for our upcoming collection of holiday cards!</p>
+            <div id="uploaded-images"></div>
         </section>
-        <section id="services">
+        <section id="about" style="display:none;">
+            <h2>About Us</h2>
+            <p>CardCraft Creations is dedicated to providing high-quality custom cards for every occasion.</p>
+        </section>
+        <section id="services" style="display:none;">
             <h2>Our Services</h2>
             <ul>
                 <li>Custom ID Cards</li>
@@ -42,35 +77,46 @@
                 <li>And More!</li>
             </ul>
         </section>
-        <section id="gallery">
+        <section id="gallery" style="display:none;">
             <h2>Gallery</h2>
-            <div class="gallery-item">
-                <img src="sample_id.jpg" alt="Sample ID Card" class="responsive-img">
-                <p>Custom ID Card (UNOFFICIAL)</p>
-            </div>
-            <div class="gallery-item">
-                <img src="birthday_card.jpg" alt="Birthday Card" class="responsive-img">
-                <p>Birthday Card</p>
-            </div>
+            <div id="gallery-items"></div>
         </section>
-        <section id="contact">
+        <section id="contact" style="display:none;">
             <h2>Contact Us</h2>
-            <form action="submit_form.php" method="post">
+            <form action="https://formspree.io/f/{your-form-id}" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="_replyto" required>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-            <p>Email: <a href="mailto:info@cardcraftcreations.com">info@cardcraftcreations.com</a></p>
-            <p>Phone: <a href="tel:+18684749366">(868) 474-9366</a></p>
+            <p>Email: <a href="mailto:info.cardcraftcreations@gmail.com">info.cardcraftcreations@gmail.com</a></p>
+            <p>Phone: <a href="tel:+18684749366">+1-868-474-9366</a></p>
+        </section>
+        <section id="admin" style="display:none;">
+            <h2>Admin Login</h2>
+            <form id="login-form">
+                <label for="admin-email">Email:</label>
+                <input type="email" id="admin-email" required>
+                <label for="admin-password">Password:</label>
+                <input type="password" id="admin-password" required>
+                <button type="submit">Login</button>
+            </form>
+            <form id="upload-form" style="display:none;" enctype="multipart/form-data">
+                <h3>Upload Your Designs</h3>
+                <label for="upload">Upload your image:</label>
+                <input type="file" id="upload" name="upload" accept="image/*">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <button type="submit">Upload</button>
+            </form>
         </section>
     </main>
     <footer role="contentinfo">
         <p>&copy; 2024 CardCraft Creations. All rights reserved.</p>
     </footer>
-    <script src="script.min.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
